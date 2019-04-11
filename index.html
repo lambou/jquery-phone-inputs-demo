@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery Phone Inputs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <span class="display-4"><i class="fas fa-phone"></i></span>
+            <h2>Phone Inputs</h2>
+            <div class="lead">jQuery version</div>
+            <p class="lead mt-3">If you do not want to take over the management of phone number forms, this plugin can
+                be useful.</p>
+                <p>
+                    <a class="btn btn-outline-secondary rounded-pill" href="https://github.com/lambou/jquery-phone-inputs"><i class="fab fa-github"></i> Github Page</a>
+                </p>
+        </div>
+
+        <div class="py-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="lead font-weight-bold">Example</div>
+                    <form id="phone-inputs-test-form" class="py-3" method="post">
+                        <label for="company">Company phones (<code>required</code>)</label>
+                        <div id="company" class="phone-inputs" data-form-name="company_phones" required></div>
+                        <br>
+                        <label for="personal">Personal phones (<code>optional</code>)</label>
+                        <div id="personal" class="phone-inputs" data-form-name="personal_phones"></div>
+                        <br>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+
+                    <section class="mt-5 py-4 px-4 bg-light" id="debug-section">
+                        <div class="lead mt-2">Debug console</div>
+                        <small class="mb-5">Listen to <b>phone.inputs.debug</b> event:
+                            <code>$('.phone-inputs').on('phone.inputs.debug', function(event, data){});</code></small>
+                            <br>
+                            <button type="button" class="btn btn-secondary btn-sm mt-2 clear-debug"><i class="fa fa-trash"></i>Clear</button>
+                        <hr>
+                    </section>
+                </div>
+                <div class="col-md-6">
+                    <div class="lead">Submitted result: <code>$('#phone-inputs-test-form').serializeArray();</code></div>
+                    <div class="mt-2 px-3 py-3 bg-light" id="serialize-section">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/html" id="phone-inputs-line-template">
+        <div class="row phone-inputs-line my-1">
+            <div class="col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <select class="custom-select"></select>
+                    <input type="text" class="form-control">
+                    <div class="input-group-append">
+                        <div class="input-group-text phone-inputs-default-checkbox-section"><input type="checkbox"></div>
+                        <button type="button" class="btn btn-success btn-sm btn-phone-inputs-add-line"><i
+                                class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-danger btn-sm btn-phone-inputs-delete-line"><i
+                                class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Boostrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- Display JSON -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.js"></script>
+    
+    <!-- jQuery Phone Inputs -->
+    <script src="dist/jquery.phone.inputs.min.js"></script>
+
+    <!-- Demo Script -->
+    <script src="demo/demo.js"></script>
+</body>
+
+</html>
